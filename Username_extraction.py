@@ -13,7 +13,7 @@ def getusername(x):
         username = REGEX.search(tweet.url).group()
     return username
 
-os.chdir(r"C:\Users\milan\Documents\Uni Masters\Thesis\Data")
+os.chdir(r"PATH") #replace with your working directory
 
 tweet_id = pd.read_csv('data.csv')
 
