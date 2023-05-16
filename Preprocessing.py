@@ -9,14 +9,14 @@ import json
 
 tqdm.pandas()
 
-data = pd.read_csv(r'C:\Users\milan\Documents\Uni Masters\Thesis\Data\Data_users.csv')
+data = pd.read_csv(r'PATH\Data_users.csv') #path to Data_users.csv
 data.dropna(subset = 'username', inplace = True)
 data = data[['tweet_ID', 'username', 'label']]
 data['following'] = None
 data = data[data['label'].isin(['normal', 'hateful'])]
 #print(data.groupby(['label']).count().to_markdown())
 
-os.chdir(r'C:\Users\milan\Documents\Uni Masters\Thesis\Data\outputs')
+os.chdir(r'PATH') #PATH TO JSONS
 
 #Joining JSON contents with the original dataframe 
 followers = pd.DataFrame(columns = ['username', 'following'])
