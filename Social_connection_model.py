@@ -70,7 +70,7 @@ def reduce_dimensionality(X, y): #feature selector
     X = X.apply(lambda x: get_vector(x, selected_features))
     return list(X)
 
-os.chdir(r'C:\Users\milan\Documents\Uni Masters\Thesis\Data')
+os.chdir(r'PATH') #replace with your working directory
 data = pd.read_csv('results_lan_model.csv')
 #data = data[data['following'].notna() & data['label'].isin(['hateful', 'normal'])]
 data.reset_index(inplace = True, drop = True)
