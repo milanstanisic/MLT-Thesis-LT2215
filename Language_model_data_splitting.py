@@ -19,7 +19,7 @@ tqdm.pandas()
 
 
 
-os.chdir(r'C:\Users\milan\Documents\Uni Masters\Thesis\Data')
+os.chdir(r'PATH') #replace with your working directory
 data = pd.read_csv('data_subset.csv') #REPLACE WITH THE ACTUAL FILE PATH 
 data = data[data['label'].isin(['hateful', 'normal'])]
 
@@ -110,7 +110,7 @@ y_test = list(test_data['label'].apply(lambda x: 1 if x == 'hateful' else 0))
 X_test = list(test_data['tweet_vector'])
 
 
-
+#CLASSIFIER
 classifier = GradientBoostingClassifier()
 classifier.fit(X_train, y_train)
 print('Fitted the classifier. Predicting test set...')
@@ -124,5 +124,5 @@ print('ROC AUC score - training:',metrics.roc_auc_score(y_train, preds))
 
 print(classifier.classes_)
 experimental_sample['lan {}'.format(str(classifier.classes_))] = predictions_test
-#experimental_sample.to_csv('results_lan_model.csv')
+experimental_sample.to_csv('results_lan_model.csv')
 data.to_csv('preprocessed.csv')
