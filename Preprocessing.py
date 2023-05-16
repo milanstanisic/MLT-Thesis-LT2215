@@ -38,7 +38,7 @@ os.chdir(r'C:\Users\milan\Documents\Uni Masters\Thesis\Data')
 contents = pd.read_csv('data_subset.csv')[['tweet_ID', 'tweet_contents']]
 contents.set_index('tweet_ID', inplace = True)
 data['tweet_contents'] = data['tweet_ID'].progress_apply(lambda x: contents.at[x, 'tweet_contents'])
-'''
+
 #Contents extraction 
 def getcontents(x):
     contents = ""
@@ -52,5 +52,5 @@ def getcontents(x):
     return contents[:contents.index('#')] if '#' in contents else contents
 
 data['tweet_contents'] = data['tweet_ID'].progress_apply(lambda x: getcontents(x))
-print('Extracted contents.')'''
+print('Extracted contents.')
 data.to_csv('data_subset.csv')
